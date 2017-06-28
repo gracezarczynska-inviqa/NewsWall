@@ -1,0 +1,4 @@
+ezpublish:
+    system:
+        default:
+            pagelayout: global/index.html.twig
