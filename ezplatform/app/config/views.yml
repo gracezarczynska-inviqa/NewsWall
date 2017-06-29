@@ -2,3 +2,9 @@ ezpublish:
     system:
         default:
             pagelayout: global/index.html.twig
+            content_view:
+              full:
+                full_article:
+                  template: "news/news.html.twig"
+                  match:
+                    Identifier\ContentType: [folder]

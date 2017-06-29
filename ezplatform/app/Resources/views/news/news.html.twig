@@ -1,0 +1,14 @@
+{% extends 'global/index.html.twig' %}
+
+{% block content %}
+
+    <h1>Product catalogue (FULL)</h1>
+    <p>Here is our complete product catalogue:</p>
+
+    {{
+        render(
+            controller('AppBundle:main:getContent', {parentLocationId: 2})
+        )
+    }}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% if searchHits is defined and searchHits is not empty %}
+    <div class="masonry">
+        {% for searchHit in searchHits %}
+            <div class="item">
+                {{ ez_render_field(searchHit.valueObject, "image") }}
+                <h1 class="title">{{ ez_field_value(searchHit.valueObject, "title") }}</h1>
+                <p>{{ ez_render_field(searchHit.valueObject, "teaser") }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endif %}

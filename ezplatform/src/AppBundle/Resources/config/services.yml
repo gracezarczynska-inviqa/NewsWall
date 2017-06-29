@@ -1,0 +1,5 @@
+services:
+   newswall.content.object.repository:
+     class: AppBundle\newsCore\ContentObjectRepository
+     arguments:
+       - '@ezpublish.api.service.search'
