@@ -35,3 +35,7 @@ _multiFileUpload:
     resource: "@EzSystemsMultiFileUploadBundle/Resources/config/routing.yml"
     prefix:   "%ezpublish_rest.path_prefix%"
 
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+

@@ -3,7 +3,7 @@
         {% for searchHit in searchHits %}
             <div class="item">
                 {{ ez_render_field(searchHit.valueObject, "image") }}
-                <h1 class="title">{{ ez_field_value(searchHit.valueObject, "title") }}</h1>
+                <h1 class="title">{{ ez_field_valuegi(searchHit.valueObject, "title") }}</a></h1>
                 <p>{{ ez_render_field(searchHit.valueObject, "teaser") }}</p>
             </div>
         {% endfor %}

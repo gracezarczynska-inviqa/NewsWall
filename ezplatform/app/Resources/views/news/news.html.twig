@@ -1,14 +1,13 @@
-{% extends 'global/index.html.twig' %}
+{% extends '@ezdesign/global/index.html.twig' %}
 
 {% block content %}
-
-    <h1>Product catalogue (FULL)</h1>
-    <p>Here is our complete product catalogue:</p>
-
+<div class="title-wrapper">
+    <h2 class="main-title">All news</h2>
+    <p class="main-paragraph">Read about our news</p>
+</div>
     {{
         render(
             controller('AppBundle:main:getContent', {parentLocationId: 2})
         )
     }}
-
 {% endblock %}

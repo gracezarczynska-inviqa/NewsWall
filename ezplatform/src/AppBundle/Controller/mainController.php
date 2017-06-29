@@ -14,7 +14,7 @@ class mainController extends Controller
     public function indexAction()
     {
         $response = $this->render(
-            '@ezdesign/global/index.html.twig', []
+            '@ezdesign/news/news.html.twig', []
         );
         return $response;
     }
@@ -35,7 +35,7 @@ class mainController extends Controller
         $content = $repository->getContentByFieldValue('category', $category);
 
         return $this->render(
-            'AppBundle:newsCore/content:news-object-list.html.twig', $content
+            '@ezdesign/news/news-object-list.html.twig', $content
         );
     }
 
@@ -44,7 +44,7 @@ class mainController extends Controller
      */
     public function categoryAction($category) {
         return $this->render(
-            'AppBundle:BookshopCore/content:category.html.twig', array('category' => $category)
+            '@ezdesign/news/category.html.twig', array('category' => $category)
         );
     }
 }

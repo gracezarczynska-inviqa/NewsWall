@@ -1,0 +1,17 @@
+{%  extends '@ezdesign/global/index.html.twig' %}
+
+{% block content %}
+
+    <div class="title-wrapper">
+        {% if category == 0 %}
+            <h2 class="main-title">Local news</h2>
+            <p class="main-paragraph">Read about our local news</p>
+        {% else %}
+            <h2 class="main-title">National news</h2>
+            <p class="main-paragraph">Read about our national news</p>
+        {% endif %}
+    </div>
+
+    {{  render(controller('AppBundle:main:getContentByCategory', {category: category})) }}
+
+{% endblock %}

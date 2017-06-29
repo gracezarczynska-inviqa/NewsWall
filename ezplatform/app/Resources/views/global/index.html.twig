@@ -1,15 +1,15 @@
 {% block header %}
 
-    {% include 'global/header.html.twig' %}
+    {% include '@ezdesign/global/header.html.twig' %}
 
 {% endblock %}
-
 <section>
+    {% include '@ezdesign/news/category-menu.html.twig' %}
     {% block content %}{% endblock %}
 </section>
 
 {% block footer %}
 
-    {% include 'global/footer.html.twig' %}
+    {% include '@ezdesign/global/footer.html.twig' %}
 
 {% endblock %}
