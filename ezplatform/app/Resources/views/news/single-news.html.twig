@@ -1,1 +1,14 @@
 {% extends '@ezdesign/global/index.html.twig' %}
+
+{% block content %}
+    <div class="title-wrapper">
+        <h1 class="main-title">{{ ez_field_value(content, "title") }}</h1>
+        <p class="main-paragraph">Read about our local news</p>
+    </div>
+    <div class="article-wrapper">
+        {{ ez_render_field(content, "image") }}
+        <p class="teaser">{{ ez_render_field(content, "teaser") }}</p>
+        <p>{{ ez_render_field(content, "story") }}</p>
+    </div>
+
+{% endblock %}

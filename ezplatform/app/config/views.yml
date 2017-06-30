@@ -5,11 +5,6 @@ ezpublish:
             content_view:
               full:
                 full_news:
-                  template: "news/news.html.twig"
-                  match:
-                    Identifier\ContentType: [folder]
-              full:
-                full_news:
                   template: "news/single-news.html.twig"
                   match:
                     Identifier\ContentType: [article]

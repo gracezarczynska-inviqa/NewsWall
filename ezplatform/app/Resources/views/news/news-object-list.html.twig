@@ -1,9 +1,11 @@
 {% if searchHits is defined and searchHits is not empty %}
-    <div class="masonry">
-        {% for searchHit in searchHits %}
+    <div class="masonry" data-masonry='{ "itemSelector": ".item", "columnWidth": 200 }'>
+
+    {% for searchHit in searchHits %}
+
             <div class="item">
                 {{ ez_render_field(searchHit.valueObject, "image") }}
-                <h1 class="title">{{ ez_field_valuegi(searchHit.valueObject, "title") }}</a></h1>
+                <h1 class="title"><a href="{{ path( "ez_urlalias", {"locationId": searchHit.valueObject.versionInfo.contentInfo.mainLocationId} ) }}">{{ ez_field_value(searchHit.valueObject, "title") }}</a></h1>
                 <p>{{ ez_render_field(searchHit.valueObject, "teaser") }}</p>
             </div>
         {% endfor %}

@@ -3,8 +3,11 @@
 namespace AppBundle\Controller;
 
 use eZ\Bundle\EzPublishCoreBundle\Controller;
+use eZ\Publish\API\Repository\Values\Content\Content;
+use eZ\Publish\Core\MVC\Symfony\View\ContentView;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 
 class mainController extends Controller
 {
@@ -15,6 +18,36 @@ class mainController extends Controller
     {
         $response = $this->render(
             '@ezdesign/news/news.html.twig', []
+        );
+        return $response;
+    }
+
+    public function getChildrenAction($template, $parentLocationId)
+    {
+        //Get an instance of the eZ SearchService for the heavy lifting
+        $searchService = $this->container->get('ezpublish.api.service.inner_search');
+        // Set up a brand new Location query
+        $query = new LocationQuery();
+        // Build a criteria
+        $criteria = new Criterion\LogicalAnd(
+            [
+                // Only visible content items please
+                new Criterion\Visibility(Criterion\Visibility::VISIBLE),
+
+                // Only children of the current parent please
+                new Criterion\ParentLocationId($parentLocationId)
+            ]
+        );
+        // Add the criteria to your query
+        $query->query = $criteria;
+        $locations = $searchService->findLocations($query);
+        dump($locations);
+        $menuItems = [];
+        foreach ($locations->searchHits as $searchHit) {
+            $menuItems[] = $searchHit->valueObject;
+        }
+        $response = $this->render(
+            $template, ['menuItems' => $menuItems]
         );
         return $response;
     }
