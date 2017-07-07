@@ -33,12 +33,12 @@
 /web/index_rest.php
 /web/index_cluster.php
 /web/bundles/
-/web/css/
+/web/css/*
+!/web/css/style.css
 /web/js/
 /web/design
 /web/extension
 /web/share
-/web/var
 /web/.htaccess
 composer.phar
 composer.lock
